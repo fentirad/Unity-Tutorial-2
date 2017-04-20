@@ -639,6 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  tilt: 0
   boundary:
     xMin: -6
     xMax: 6
