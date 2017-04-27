@@ -23,13 +23,15 @@ public class DestroyByContact : MonoBehaviour {
 		Transform thisTransform = gameObject.transform;
 		Transform otherTransform = other.transform; 
 
-		if (otherTag == "Boundary") {
+		if (other.CompareTag("Boundary") || other.CompareTag("Enemy")) {
 			return;
 		}
 
-		Instantiate (explosion, thisTransform.position, thisTransform.rotation);
+		if (explosion != null) {
+			Instantiate (explosion, thisTransform.position, thisTransform.rotation);
+		}
 
-		if (otherTag == "Player") {
+		if (other.CompareTag("Player")) {
 			Instantiate (playerExplosion, otherTransform.position, otherTransform.rotation);
 			gameController.GameOver ();
 		}
